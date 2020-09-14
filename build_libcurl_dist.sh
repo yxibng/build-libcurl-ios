@@ -22,7 +22,7 @@ function build_for_arch() {
   export PATH="${DEVROOT}/usr/bin/:${PATH}"
   export CFLAGS="-DCURL_BUILD_IOS -arch ${ARCH} -pipe -Os -gdwarf-2 -isysroot ${SYSROOT} -miphoneos-version-min=${IPHONEOS_DEPLOYMENT_TARGET} -fembed-bitcode"
   export LDFLAGS="-arch ${ARCH} -isysroot ${SYSROOT}"
-  ./configure --disable-shared --without-ssl --with-secure-transport --without-zlib --enable-static --enable-ipv6  --host="${HOST}" --prefix=${PREFIX} && make -j8 && make install
+  ./configure --disable-shared --enable-symbol-hiding --without-ssl --with-secure-transport --without-zlib --enable-static --enable-ipv6  --host="${HOST}" --prefix=${PREFIX} && make -j8 && make install
 }
 
 
